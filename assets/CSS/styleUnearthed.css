@@ -128,39 +128,11 @@ main {
     text-align: center;
     position: relative;
     overflow: hidden;
+    background-image: url(../IMG/Background/Gemini_Generated_Image_jybz1mjybz1mjybz.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    /* Fundo com efeito de camadas do solo (Camada escura + Camada de rocha) */
-    background-color: #0d0d0d;
-    background-image: 
-        /* Camada 1: Brilho sutil de expedição no topo */
-        radial-gradient(circle at 50% 0%, rgba(226, 177, 68, 0.15) 0%, transparent 60%),
-        /* Camada 2: Textura geométrica que lembra linhas de escavação / topo topográfico */
-        linear-gradient(135deg, rgba(24, 25, 21, 0.9) 0%, rgba(13, 13, 13, 0.95) 100%),
-        /* Camada 3: Padrão sutil de poeira/rocha subterrânea */
-        radial-gradient(rgba(226, 177, 68, 0.08) 1px, transparent 0);
-    background-size: 100% 100%, 100% 100%, 24px 24px;
-
-    /* Borda superior estilizada lembrando fenda geológica */
-    border-top: 3px solid var(--unearthed-amarelo);
-    box-shadow: inset 0 20px 30px -10px rgba(0, 0, 0, 0.8);
-}
-
-/* Divisória temática de escavação no final da seção (transição de solo) */
-#apresentacao_temp::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 12px;
-    background: repeating-linear-gradient(
-        -45deg,
-        var(--unearthed-amarelo),
-        var(--unearthed-amarelo) 15px,
-        var(--unearthed-laranja) 15px,
-        var(--unearthed-laranja) 30px
-    );
-    opacity: 0.8;
 }
 
 /* Título com estilo Escavado / Arqueológico */
@@ -170,21 +142,13 @@ main {
     letter-spacing: 2px;
     margin-bottom: 15px;
     background: linear-gradient(135deg, #ffffff 30%, var(--unearthed-amarelo) 100%);
+    background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
     filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.7));
 }
 
-.temp-header h2::after {
-    content: '⛏️ ⛏️ ⛏️';
-    display: block;
-    font-size: 0.9rem;
-    letter-spacing: 8px;
-    margin: 10px auto 0 auto;
-    -webkit-text-fill-color: initial;
-    opacity: 0.7;
-}
 
 .temp-intro {
     font-size: 1.15rem;
@@ -197,6 +161,10 @@ main {
     border-radius: 8px;
     border: 1px solid rgba(226, 177, 68, 0.2);
     backdrop-filter: blur(4px);
+}
+
+.video-container iframe{
+    border-radius: 15pt;
 }
 
 /* Cards estilizados como "Artefatos Encontrados" na Escavação */
@@ -237,10 +205,11 @@ main {
    CARDS TEMÁTICOS COM BORDAS INDIVIDUALIZADAS
    ========================================================= */
 .unearthed-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 30px;
     margin-top: 20px;
+    margin: 5% 10%;
     text-align: left;
 }
 
@@ -248,7 +217,7 @@ main {
     background-color: var(--unearthed-card-bg);
     border-radius: 12px;
     padding: 30px;
-    border-left: 5px solid var(--unearthed-amarelo); /* Padrão arqueológico */
+    border-left: 5px solid var(--unearthed-amarelo); 
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
@@ -357,10 +326,14 @@ footer strong {
     main {
         margin-top: 110px;
     }
+    .video-container{
+        width: 100%;
+    }
 
     .temp-header h2 {
         font-size: 1.8rem;
     }
+    
 
     .unearthed-cards {
         grid-template-columns: 1fr;
